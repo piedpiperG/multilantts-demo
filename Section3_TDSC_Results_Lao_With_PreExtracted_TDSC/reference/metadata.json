@@ -1,0 +1,23 @@
+{
+  "description": "Section 3 参考音频（中文 prompt）",
+  "reference_audios": [
+    {
+      "name": "00005436",
+      "file": "00005436.wav",
+      "text": "不一会，便见一大团烟雾向他们滚滚而来。",
+      "language": "zh",
+      "spk_id": "00005436",
+      "source": "seedtts_testset",
+      "description": "中文参考音色 00005436"
+    },
+    {
+      "name": "00005275",
+      "file": "00005275.wav",
+      "text": "所以，我猜他们被雪崩埋葬的可能性极小。",
+      "language": "zh",
+      "spk_id": "00005275",
+      "source": "seedtts_testset",
+      "description": "中文参考音色 00005275"
+    }
+  ]
+}

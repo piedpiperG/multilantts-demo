@@ -1,0 +1,62 @@
+[
+  {
+    "spk_id": "zero_shot_prompt",
+    "text_idx": 1,
+    "text": "ການເສີມຕໍ່ເທີບເງີບຕາມແຄມທາງ ຍັງພົບເຫັນເພີ່ມຂຶ້ນ",
+    "wer": 0.5714285714285714,
+    "audio_path": "/workspace/liyanliang/claude_workspace/paper_audio/Section2_MO-DPO_Results_Lao_With_Section1_Voices/DPO/zero_shot_prompt/1.wav",
+    "prompt_text": "希望你以后能够做的比我还好呦。",
+    "prompt_audio": "/workspace/liyanliang/claude_workspace/paper_audio/Section1_Stability-Expressivity_Gap/Reference/zero_shot_prompt.wav",
+    "attempts": 2
+  },
+  {
+    "spk_id": "zero_shot_prompt",
+    "text_idx": 2,
+    "text": "ທ່ານນາຍົກລັດຖະມົນຕີ ໂອ້ລົມວຽກງານຂະແໜງການພາຍໃນທົ່ວປະເທດ",
+    "wer": 0.5,
+    "audio_path": "/workspace/liyanliang/claude_workspace/paper_audio/Section2_MO-DPO_Results_Lao_With_Section1_Voices/DPO/zero_shot_prompt/2.wav",
+    "prompt_text": "希望你以后能够做的比我还好呦。",
+    "prompt_audio": "/workspace/liyanliang/claude_workspace/paper_audio/Section1_Stability-Expressivity_Gap/Reference/zero_shot_prompt.wav",
+    "attempts": 7
+  },
+  {
+    "spk_id": "zero_shot_prompt",
+    "text_idx": 3,
+    "text": "ສານຕັດສິນທັງຈຳທັງປັບອະດີດແມ່ບ້ານຄະດີລັກຊັບ ແລະ ສໍ້ໂກງເຈົ້ານາຍ",
+    "wer": 0.4444444444444444,
+    "audio_path": "/workspace/liyanliang/claude_workspace/paper_audio/Section2_MO-DPO_Results_Lao_With_Section1_Voices/DPO/zero_shot_prompt/3.wav",
+    "prompt_text": "希望你以后能够做的比我还好呦。",
+    "prompt_audio": "/workspace/liyanliang/claude_workspace/paper_audio/Section1_Stability-Expressivity_Gap/Reference/zero_shot_prompt.wav",
+    "attempts": 1
+  },
+  {
+    "spk_id": "en_3",
+    "text_idx": 1,
+    "text": "ການເສີມຕໍ່ເທີບເງີບຕາມແຄມທາງ ຍັງພົບເຫັນເພີ່ມຂຶ້ນ",
+    "wer": 0.5714285714285714,
+    "audio_path": "/workspace/liyanliang/claude_workspace/paper_audio/Section2_MO-DPO_Results_Lao_With_Section1_Voices/DPO/en_3/1.wav",
+    "prompt_text": "I'm so happy I got to do this. I really wanted to work with Tom Hooper. I know that he records live and he films and records your vocals live. It's such an interesting thing to me and I wanted to see him work. I had actually done screen tests for Les Mis.",
+    "prompt_audio": "/workspace/liyanliang/claude_workspace/paper_audio/Section1_Stability-Expressivity_Gap/Reference/en_3.wav",
+    "attempts": 2
+  },
+  {
+    "spk_id": "en_3",
+    "text_idx": 2,
+    "text": "ທ່ານນາຍົກລັດຖະມົນຕີ ໂອ້ລົມວຽກງານຂະແໜງການພາຍໃນທົ່ວປະເທດ",
+    "wer": 0.5,
+    "audio_path": "/workspace/liyanliang/claude_workspace/paper_audio/Section2_MO-DPO_Results_Lao_With_Section1_Voices/DPO/en_3/2.wav",
+    "prompt_text": "I'm so happy I got to do this. I really wanted to work with Tom Hooper. I know that he records live and he films and records your vocals live. It's such an interesting thing to me and I wanted to see him work. I had actually done screen tests for Les Mis.",
+    "prompt_audio": "/workspace/liyanliang/claude_workspace/paper_audio/Section1_Stability-Expressivity_Gap/Reference/en_3.wav",
+    "attempts": 1
+  },
+  {
+    "spk_id": "en_3",
+    "text_idx": 3,
+    "text": "ສານຕັດສິນທັງຈຳທັງປັບອະດີດແມ່ບ້ານຄະດີລັກຊັບ ແລະ ສໍ້ໂກງເຈົ້ານາຍ",
+    "wer": 0.4444444444444444,
+    "audio_path": "/workspace/liyanliang/claude_workspace/paper_audio/Section2_MO-DPO_Results_Lao_With_Section1_Voices/DPO/en_3/3.wav",
+    "prompt_text": "I'm so happy I got to do this. I really wanted to work with Tom Hooper. I know that he records live and he films and records your vocals live. It's such an interesting thing to me and I wanted to see him work. I had actually done screen tests for Les Mis.",
+    "prompt_audio": "/workspace/liyanliang/claude_workspace/paper_audio/Section1_Stability-Expressivity_Gap/Reference/en_3.wav",
+    "attempts": 1
+  }
+]

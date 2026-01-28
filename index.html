@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audio Demo</title>
+  <style>
+    :root {
+      --bg: #f5f1ea;
+      --panel: #ffffff;
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --line: #e7e1d6;
+      --accent: #0f766e;
+      --accent-2: #c2410c;
+      --shadow: 0 12px 28px rgba(24, 24, 28, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Source Serif 4", "Noto Serif SC", "STSong", "Songti SC", serif;
+      color: var(--ink);
+      background: radial-gradient(circle at 20% -10%, #fbf8f2, #f2ede3 55%, #efe9dd 100%);
+    }
+    header {
+      padding: 40px 40px 26px;
+      background: linear-gradient(135deg, #6b63d9, #5a3c9b);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      text-align: center;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+    .sub { color: rgba(255, 255, 255, 0.82); font-size: 14px; }
+    main {
+      padding: 24px 40px 60px;
+      max-width: 1260px;
+      margin: 0 auto;
+    }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin: 18px 0 24px;
+    }
+    #jumpNav {
+      margin-top: 0;
+      margin-bottom: 14px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      background: #f7f2ea;
+      border: 1px solid #eadfce;
+      box-shadow: 0 10px 20px rgba(30, 25, 40, 0.08);
+    }
+    .jump-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid #e6dac7;
+      text-decoration: none;
+      color: #2f2a3b;
+      font-size: 13px;
+      font-weight: 600;
+      background: #fff;
+      box-shadow: 0 8px 16px rgba(24, 24, 28, 0.08);
+    }
+    .jump-btn:hover {
+      border-color: #6b63d9;
+      color: #6b63d9;
+      transform: translateY(-1px);
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .search {
+      flex: 1 1 360px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font-size: 14px;
+      background: #fff;
+      box-shadow: inset 0 1px 2px rgba(17, 24, 39, 0.06);
+    }
+    .hint { color: var(--muted); font-size: 12px; }
+
+    .section-block {
+      margin-bottom: 26px;
+      padding: 18px 20px 20px;
+      border-radius: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .section-block h2 {
+      margin: 0 0 14px;
+      font-size: 21px;
+      font-weight: 700;
+    }
+    .voice-title {
+      margin: 18px 0 10px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .text-block {
+      padding: 10px 0 14px;
+      border-top: 1px solid var(--line);
+    }
+    .text-title {
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 8px;
+      color: var(--accent-2);
+    }
+    .row {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      scroll-snap-type: x proximity;
+    }
+    .cell {
+      min-width: 220px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 0;
+      background: #ffffff;
+      box-shadow: 0 10px 20px rgba(23, 23, 30, 0.08);
+      scroll-snap-align: start;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+    .cell-label {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fff;
+      padding: 10px 12px;
+      background: linear-gradient(135deg, #6f5bd3, #6c4aa8);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .cell audio {
+      width: calc(100% - 24px);
+      margin: 10px 12px 12px;
+      border-radius: 999px;
+      background: #f4f3f6;
+    }
+
+    .modules { display: grid; gap: 16px; }
+    .module-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px 16px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .module-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    .toc-grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    .toc-card {
+      display: grid;
+      gap: 6px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #f1f2f4;
+      border: 1px solid #e1e3ea;
+      box-shadow: 0 8px 18px rgba(24, 24, 28, 0.08);
+      text-decoration: none;
+      color: #2f2a3b;
+    }
+    .toc-card:hover {
+      border-color: #6b63d9;
+      box-shadow: 0 10px 22px rgba(24, 24, 28, 0.12);
+      transform: translateY(-1px);
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .toc-title {
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .toc-sub {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .badge {
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--accent);
+    }
+    details {
+      border: 1px dashed var(--line);
+      border-radius: 12px;
+      padding: 10px 12px;
+      margin: 8px 0;
+      background: #fbfaf7;
+    }
+    summary { cursor: pointer; font-weight: 600; }
+    .dir-meta { color: var(--muted); font-size: 12px; margin-left: 6px; }
+    .audio-list { display: grid; gap: 6px; margin: 8px 0 4px; }
+    .audio-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+    .audio-name { font-size: 12px; color: var(--ink); word-break: break-all; }
+    .empty { color: var(--muted); font-size: 14px; padding: 10px 0; }
+
+    @media (max-width: 720px) {
+      .audio-item { grid-template-columns: 1fr; }
+      main { padding: 18px 16px 40px; }
+      header { padding: 28px 16px 18px; }
+      .section-block { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Bridging the Stability-Expressivity Gap: Synthetic Data Scaling and Preference Alignment for Low-Resource Spoken Language Models</h1>
+    <div class="sub">Audio Comparison · Section1–Section5</div>
+  </header>
+  <main>
+    <div class="toolbar" id="jumpNav">
+      <a class="jump-btn" href="#section1">Section1</a>
+      <a class="jump-btn" href="#section2">Section2</a>
+      <a class="jump-btn" href="#section3">Section3</a>
+      <a class="jump-btn" href="#section4">Section4</a>
+      <a class="jump-btn" href="#section5">Section5</a>
+    </div>
+    <section class="section-block" id="toc">
+      <h2>Table of Contents</h2>
+      <div class="modules toc-grid">
+        <a class="toc-card" href="#section1">
+          <div class="toc-title">Section 1: The Stability-Expressivity Gap</div>
+          <div class="toc-sub">α=0% · 3% · 9% · 25% · 50% · 67% · 80%</div>
+        </a>
+        <a class="toc-card" href="#section2">
+          <div class="toc-title">Section 2: MO-DPO Results</div>
+          <div class="toc-sub">SFT · DPO · MO-DPO</div>
+        </a>
+        <a class="toc-card" href="#section3">
+          <div class="toc-title">Section 3: TDSC Results</div>
+          <div class="toc-sub">SFT · Self-Training · TDSC</div>
+        </a>
+        <a class="toc-card" href="#section4">
+          <div class="toc-title">Section 4: Comparison with Existing Systems</div>
+          <div class="toc-sub">4.1 Thai TTS · 4.2 Lao TTS</div>
+        </a>
+        <a class="toc-card" href="#section5">
+          <div class="toc-title">Section 5: Zero-shot Voice Cloning</div>
+          <div class="toc-sub">5.1 Thai · 5.2 Lao</div>
+        </a>
+      </div>
+    </section>
+    <div id="section1" class="section-block" style="display:none;"></div>
+    <div id="section2" class="section-block" style="display:none;"></div>
+    <div id="section3" class="section-block" style="display:none;"></div>
+    <div id="section4" class="section-block" style="display:none;"></div>
+    <div id="section5" class="section-block" style="display:none;"></div>
+
+    <div class="toolbar">
+      <input id="searchInput" class="search" placeholder="Search by section / voice / text" />
+      <div class="hint" id="metaInfo"></div>
+    </div>
+    <div id="modules" class="modules"></div>
+  </main>
+
+  <script id="audioIndexFallback" type="application/json">{"root": ".", "generated_at": "2026-01-25T16:15:49", "audio_extensions": [".aac", ".flac", ".m4a", ".mp3", ".ogg", ".wav"], "modules": [], "section1_compare": {"section": "Section1_Stability-Expressivity_Gap", "voices": [{"id": "en_3", "name": "en_3", "alphas": ["0", "3", "9", "25", "50", "67", "80"], "reference_audio": "Section1_Stability-Expressivity_Gap/Reference/en_3.wav", "texts": [{"index": 1, "label": "การศึกษาทางวิทยาศาสตร์ช่วยให้เราเข้าใจถึงกระบวนการทางธรรมชาติที่ซับซ้อน และเปิดโอกาสให้เราคิดค้นนวัตกรรมใหม่ๆ ที่สามารถพัฒนาคุณภาพชีวิตของมนุษย์ได้"}, {"index": 2, "label": "การปฏิบัติตามหลักการของความยุติธรรมในสังคมไม่เพียงแต่ช่วยให้เกิดความสงบสุข แต่ยังเสริมสร้างความไว้วางใจและความสามัคคีในหมู่ประชาชน"}, {"index": 3, "label": "ในการทำงานร่วมกับผู้อื่น การสื่อสารที่ชัดเจนและการฟังอย่างตั้งใจจะช่วยให้การทำงานเป็นไปได้อย่างราบรื่นและประสบความสำเร็จ"}, {"index": 4, "label": "การใช้เทคโนโลยีในชีวิตประจำวันทำให้เราสามารถเชื่อมต่อกับคนทั่วโลกได้ง่ายขึ้น และช่วยให้การเรียนรู้และการทำงานมีประสิทธิภาพมากยิ่งขึ้น"}, {"index": 5, "label": "การออกกำลังกายเป็นประจำไม่เพียงแต่ทำให้ร่างกายแข็งแรง แต่ยังช่วยเสริมสร้างความสมดุลทางจิตใจและเพิ่มความมั่นใจในตัวเอง"}], "items": {"1": {"0": "Section1_Stability-Expressivity_Gap/en_3/alpha_0/001_0.wav", "3": "Section1_Stability-Expressivity_Gap/en_3/alpha_3/001_0.wav", "9": "Section1_Stability-Expressivity_Gap/en_3/alpha_9/001_0.wav", "25": "Section1_Stability-Expressivity_Gap/en_3/alpha_25/001_0.wav", "50": "Section1_Stability-Expressivity_Gap/en_3/alpha_50/001_0.wav", "67": "Section1_Stability-Expressivity_Gap/en_3/alpha_67/001_0.wav", "80": "Section1_Stability-Expressivity_Gap/en_3/alpha_80/001_0.wav"}, "2": {"0": "Section1_Stability-Expressivity_Gap/en_3/alpha_0/002_0.wav", "3": "Section1_Stability-Expressivity_Gap/en_3/alpha_3/002_0.wav", "9": "Section1_Stability-Expressivity_Gap/en_3/alpha_9/002_0.wav", "25": "Section1_Stability-Expressivity_Gap/en_3/alpha_25/002_0.wav", "50": "Section1_Stability-Expressivity_Gap/en_3/alpha_50/002_0.wav", "67": "Section1_Stability-Expressivity_Gap/en_3/alpha_67/002_0.wav", "80": "Section1_Stability-Expressivity_Gap/en_3/alpha_80/002_0.wav"}, "3": {"0": "Section1_Stability-Expressivity_Gap/en_3/alpha_0/003_0.wav", "3": "Section1_Stability-Expressivity_Gap/en_3/alpha_3/003_0.wav", "9": "Section1_Stability-Expressivity_Gap/en_3/alpha_9/003_0.wav", "25": "Section1_Stability-Expressivity_Gap/en_3/alpha_25/003_0.wav", "50": "Section1_Stability-Expressivity_Gap/en_3/alpha_50/003_0.wav", "67": "Section1_Stability-Expressivity_Gap/en_3/alpha_67/003_0.wav", "80": "Section1_Stability-Expressivity_Gap/en_3/alpha_80/003_0.wav"}, "4": {"0": "Section1_Stability-Expressivity_Gap/en_3/alpha_0/004_0.wav", "3": "Section1_Stability-Expressivity_Gap/en_3/alpha_3/004_0.wav", "9": "Section1_Stability-Expressivity_Gap/en_3/alpha_9/004_0.wav", "25": "Section1_Stability-Expressivity_Gap/en_3/alpha_25/004_0.wav", "50": "Section1_Stability-Expressivity_Gap/en_3/alpha_50/004_0.wav", "67": "Section1_Stability-Expressivity_Gap/en_3/alpha_67/004_0.wav", "80": "Section1_Stability-Expressivity_Gap/en_3/alpha_80/004_0.wav"}, "5": {"0": "Section1_Stability-Expressivity_Gap/en_3/alpha_0/005_0.wav", "3": "Section1_Stability-Expressivity_Gap/en_3/alpha_3/005_0.wav", "9": "Section1_Stability-Expressivity_Gap/en_3/alpha_9/005_0.wav", "25": "Section1_Stability-Expressivity_Gap/en_3/alpha_25/005_0.wav", "50": "Section1_Stability-Expressivity_Gap/en_3/alpha_50/005_0.wav", "67": "Section1_Stability-Expressivity_Gap/en_3/alpha_67/005_0.wav", "80": "Section1_Stability-Expressivity_Gap/en_3/alpha_80/005_0.wav"}}}, {"id": "zero_shot_prompt", "name": "zero_shot_prompt", "alphas": ["0", "3", "9", "25", "50", "67", "80"], "reference_audio": "Section1_Stability-Expressivity_Gap/Reference/zero_shot_prompt.wav", "texts": [{"index": 1, "label": "การศึกษาทางวิทยาศาสตร์ช่วยให้เราเข้าใจถึงกระบวนการทางธรรมชาติที่ซับซ้อน และเปิดโอกาสให้เราคิดค้นนวัตกรรมใหม่ๆ ที่สามารถพัฒนาคุณภาพชีวิตของมนุษย์ได้"}, {"index": 2, "label": "การปฏิบัติตามหลักการของความยุติธรรมในสังคมไม่เพียงแต่ช่วยให้เกิดความสงบสุข แต่ยังเสริมสร้างความไว้วางใจและความสามัคคีในหมู่ประชาชน"}, {"index": 3, "label": "ในการทำงานร่วมกับผู้อื่น การสื่อสารที่ชัดเจนและการฟังอย่างตั้งใจจะช่วยให้การทำงานเป็นไปได้อย่างราบรื่นและประสบความสำเร็จ"}, {"index": 4, "label": "การใช้เทคโนโลยีในชีวิตประจำวันทำให้เราสามารถเชื่อมต่อกับคนทั่วโลกได้ง่ายขึ้น และช่วยให้การเรียนรู้และการทำงานมีประสิทธิภาพมากยิ่งขึ้น"}, {"index": 5, "label": "การออกกำลังกายเป็นประจำไม่เพียงแต่ทำให้ร่างกายแข็งแรง แต่ยังช่วยเสริมสร้างความสมดุลทางจิตใจและเพิ่มความมั่นใจในตัวเอง"}], "items": {"1": {"0": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_0/001_0.wav", "3": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_3/001_0.wav", "9": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_9/001_0.wav", "25": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_25/001_0.wav", "50": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_50/001_0.wav", "67": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_67/001_0.wav", "80": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_80/001_0.wav"}, "2": {"0": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_0/002_0.wav", "3": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_3/002_0.wav", "9": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_9/002_0.wav", "25": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_25/002_0.wav", "50": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_50/002_0.wav", "67": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_67/002_0.wav", "80": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_80/002_0.wav"}, "3": {"0": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_0/003_0.wav", "3": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_3/003_0.wav", "9": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_9/003_0.wav", "25": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_25/003_0.wav", "50": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_50/003_0.wav", "67": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_67/003_0.wav", "80": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_80/003_0.wav"}, "4": {"0": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_0/004_0.wav", "3": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_3/004_0.wav", "9": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_9/004_0.wav", "25": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_25/004_0.wav", "50": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_50/004_0.wav", "67": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_67/004_0.wav", "80": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_80/004_0.wav"}, "5": {"0": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_0/005_0.wav", "3": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_3/005_0.wav", "9": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_9/005_0.wav", "25": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_25/005_0.wav", "50": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_50/005_0.wav", "67": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_67/005_0.wav", "80": "Section1_Stability-Expressivity_Gap/zero_shot_prompt/alpha_80/005_0.wav"}}}]}, "section2_compare": {"section": "Section2_MO-DPO_Results_Lao_With_Section1_Voices", "methods": ["SFT", "DPO", "MO_DPO"], "texts": [{"index": 1, "label": "ທ່ານນາຍົກລັດຖະມົນຕີ ໂອ້ລົມວຽກງານຂະແໜງການພາຍໃນທົ່ວປະເທດ"}, {"index": 2, "label": "ການເສີມຕໍ່ເທີບເງີບຕາມແຄມທາງ ຍັງພົບເຫັນເພີ່ມຂຶ້ນ"}, {"index": 3, "label": "ສານຕັດສິນທັງຈຳທັງປັບອະດີດແມ່ບ້ານຄະດີລັກຊັບ ແລະ ສໍ້ໂກງເຈົ້ານາຍ"}], "refs": [{"name": "en_3", "reference_audio": "Section1_Stability-Expressivity_Gap/Reference/en_3.wav", "items": {"1": {"DPO": "Section2_MO-DPO_Results_Lao_With_Section1_Voices/DPO/en_3/1.wav", "MO_DPO": "Section2_MO-DPO_Results_Lao_With_Section1_Voices/MO_DPO/en_3/1.wav", "SFT": "Section2_MO-DPO_Results_Lao_With_Section1_Voices/SFT/en_3/1.wav"}, "2": {"DPO": "Section2_MO-DPO_Results_Lao_With_Section1_Voices/DPO/en_3/2.wav", "MO_DPO": "Section2_MO-DPO_Results_Lao_With_Section1_Voices/MO_DPO/en_3/2.wav", "SFT": "Section2_MO-DPO_Results_Lao_With_Section1_Voices/SFT/en_3/2.wav"}, "3": {"DPO": "Section2_MO-DPO_Results_Lao_With_Section1_Voices/DPO/en_3/3.wav", "MO_DPO": "Section2_MO-DPO_Results_Lao_With_Section1_Voices/MO_DPO/en_3/3.wav", "SFT": "Section2_MO-DPO_Results_Lao_With_Section1_Voices/SFT/en_3/3.wav"}}}, {"name": "zero_shot_prompt", "reference_audio": "Section1_Stability-Expressivity_Gap/Reference/zero_shot_prompt.wav", "items": {"1": {"DPO": "Section2_MO-DPO_Results_Lao_With_Section1_Voices/DPO/zero_shot_prompt/1.wav", "MO_DPO": "Section2_MO-DPO_Results_Lao_With_Section1_Voices/MO_DPO/zero_shot_prompt/1.wav", "SFT": "Section2_MO-DPO_Results_Lao_With_Section1_Voices/SFT/zero_shot_prompt/1.wav"}, "2": {"DPO": "Section2_MO-DPO_Results_Lao_With_Section1_Voices/DPO/zero_shot_prompt/2.wav", "MO_DPO": "Section2_MO-DPO_Results_Lao_With_Section1_Voices/MO_DPO/zero_shot_prompt/2.wav", "SFT": "Section2_MO-DPO_Results_Lao_With_Section1_Voices/SFT/zero_shot_prompt/2.wav"}, "3": {"DPO": "Section2_MO-DPO_Results_Lao_With_Section1_Voices/DPO/zero_shot_prompt/3.wav", "MO_DPO": "Section2_MO-DPO_Results_Lao_With_Section1_Voices/MO_DPO/zero_shot_prompt/3.wav", "SFT": "Section2_MO-DPO_Results_Lao_With_Section1_Voices/SFT/zero_shot_prompt/3.wav"}}}]}, "section3_compare": {"section": "Section3_TDSC_Results_Lao_With_PreExtracted_TDSC", "methods": ["SFT", "self_train", "TDSC"], "method_labels": {"SFT": "SFT", "self_train": "self-train", "TDSC": "TDSC"}, "texts": [{"index": 1, "label": "Text 1"}, {"index": 2, "label": "Text 2"}], "items": {"1": {"self_train": "Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/self_train/1.wav", "SFT": "Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/SFT/1.wav", "TDSC": "Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/TDSC/1.wav"}, "2": {"self_train": "Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/self_train/2.wav", "SFT": "Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/SFT/2.wav", "TDSC": "Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/TDSC/2.wav"}}}, "section4_compare": {"section": "Section4_Comparison_with_Existing_Systems", "subsections": [{"name": "4.1_Thai_TTS_Comparison", "texts": [{"index": 1, "label": "การสร้างบรรยากาศในการทำงานที่สนับสนุนให้ทุกคนแสดงความคิดเห็นและเสนอแนวทางใหม่ๆ จะช่วยให้เราสามารถแก้ปัญหาที่ซับซ้อนได้และมีผลลัพธ์ที่ดีขึ้น"}], "methods": ["MMS", "typhoon-tts", "seamless-m4t-v2", "pythaitts", "ElevenLabs", "Ours"], "refs": [{"name": "th_cross_lingual", "path": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/Reference/th_cross_lingual.wav"}, {"name": "th_zero_shot", "path": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/Reference/th_zero_shot.wav"}, {"name": "en_2", "path": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/Reference/en_2.wav"}, {"name": "en_3", "path": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/Reference/en_3.wav"}, {"name": "th_8620", "path": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/Reference/th_8620.wav"}, {"name": "th_9804", "path": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/Reference/th_9804.wav"}], "items": {"th_cross_lingual": {"1": {"ElevenLabs": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/ElevenLabs/th_cross_lingual/001.mp3", "MMS": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/MMS/001.wav", "Ours": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/Ours/th_cross_lingual/0h/001_0.wav", "typhoon-tts": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/typhoon-tts/001.wav", "seamless-m4t-v2": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/seamless-m4t-v2/001.wav", "pythaitts": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/pythaitts/001.wav"}}, "th_zero_shot": {"1": {"ElevenLabs": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/ElevenLabs/th_zero_shot/001.mp3", "MMS": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/MMS/001.wav", "Ours": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/Ours/th_zero_shot/0h/001_0.wav", "typhoon-tts": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/typhoon-tts/001.wav", "seamless-m4t-v2": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/seamless-m4t-v2/001.wav", "pythaitts": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/pythaitts/001.wav"}}, "en_2": {"1": {"ElevenLabs": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/ElevenLabs/en_2/001.mp3", "MMS": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/MMS/001.wav", "Ours": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/Ours/en_2/0h/001_0.wav", "typhoon-tts": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/typhoon-tts/001.wav", "seamless-m4t-v2": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/seamless-m4t-v2/001.wav", "pythaitts": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/pythaitts/001.wav"}}, "en_3": {"1": {"ElevenLabs": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/ElevenLabs/en_3/001.mp3", "MMS": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/MMS/001.wav", "Ours": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/Ours/en_3/0h/001_0.wav", "typhoon-tts": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/typhoon-tts/001.wav", "seamless-m4t-v2": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/seamless-m4t-v2/001.wav", "pythaitts": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/pythaitts/001.wav"}}, "th_8620": {"1": {"ElevenLabs": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/ElevenLabs/th_8620/001.mp3", "MMS": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/MMS/001.wav", "Ours": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/Ours/th_8620/0h/001_0.wav", "typhoon-tts": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/typhoon-tts/001.wav", "seamless-m4t-v2": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/seamless-m4t-v2/001.wav", "pythaitts": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/pythaitts/001.wav"}}, "th_9804": {"1": {"ElevenLabs": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/ElevenLabs/th_9804/001.mp3", "MMS": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/MMS/001.wav", "Ours": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/Ours/th_9804/0h/001_0.wav", "typhoon-tts": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/typhoon-tts/001.wav", "seamless-m4t-v2": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/seamless-m4t-v2/001.wav", "pythaitts": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/pythaitts/001.wav"}}}}, {"name": "4.2_Lao_TTS_Comparison", "texts": [{"index": 1, "label": "ນັກກິລາແລ່ນ ທີ່ພິການທາງສາຍຕາ ຖືກແຟນໜຸ່ມຂໍແຕ່ງງານກາງສະໜາມ ຫຼັງຈາກແຂ່ງຂັນແລ້ວ"}], "methods": ["MMS", "Ours"], "refs": [{"name": "th_cross_lingual", "path": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/Reference/th_cross_lingual.wav"}, {"name": "th_zero_shot", "path": "Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/Reference/th_zero_shot.wav"}, {"name": "en_2", "path": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/Reference/en_2.wav"}, {"name": "en_3", "path": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/Reference/en_3.wav"}], "items": {"th_cross_lingual": {"1": {"MMS": "Section4_Comparison_with_Existing_Systems/4.2_Lao_TTS_Comparison/MMS/001.wav", "Ours": "Section4_Comparison_with_Existing_Systems/4.2_Lao_TTS_Comparison/Ours/th_cross_lingual/001_0.wav"}}, "th_zero_shot": {"1": {"MMS": "Section4_Comparison_with_Existing_Systems/4.2_Lao_TTS_Comparison/MMS/001.wav", "Ours": "Section4_Comparison_with_Existing_Systems/4.2_Lao_TTS_Comparison/Ours/th_zero_shot/001_0.wav"}}, "en_2": {"1": {"MMS": "Section4_Comparison_with_Existing_Systems/4.2_Lao_TTS_Comparison/MMS/001.wav", "Ours": "Section4_Comparison_with_Existing_Systems/4.2_Lao_TTS_Comparison/Ours/en_2/001_0.wav"}}, "en_3": {"1": {"MMS": "Section4_Comparison_with_Existing_Systems/4.2_Lao_TTS_Comparison/MMS/001.wav", "Ours": "Section4_Comparison_with_Existing_Systems/4.2_Lao_TTS_Comparison/Ours/en_3/001_0.wav"}}}}]}, "section5_compare": {"section": "Section5_Zero-shot_Voice_Cloning", "subsections": [{"name": "5.1_Thai_Cloning_0h", "texts": [{"index": 1, "label": "การสร้างบรรยากาศในการทำงานที่สนับสนุนให้ทุกคนแสดงความคิดเห็นและเสนอแนวทางใหม่ๆ จะช่วยให้เราสามารถแก้ปัญหาที่ซับซ้อนได้และมีผลลัพธ์ที่ดีขึ้น"}], "methods": ["ElevenLabs", "Ours"], "refs": [{"name": "chouxiang", "path": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/Reference/chouxiang.wav"}, {"name": "zh_7", "path": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/Reference/zh_7.wav"}, {"name": "en_2", "path": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/Reference/en_2.wav"}, {"name": "en_3", "path": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/Reference/en_3.wav"}, {"name": "th_8620", "path": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/Reference/th_8620.wav"}, {"name": "th_9804", "path": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/Reference/th_9804.wav"}], "items": {"chouxiang": {"1": {"ElevenLabs": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/ElevenLabs/chouxiang/001.mp3", "Ours": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/Ours/0h/chouxiang/001_0.wav"}}, "en_2": {"1": {"ElevenLabs": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/ElevenLabs/en_2/001.mp3", "Ours": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/Ours/0h/en_2/001_0.wav"}}, "en_3": {"1": {"ElevenLabs": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/ElevenLabs/en_3/001.mp3", "Ours": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/Ours/0h/en_3/001_0.wav"}}, "th_8620": {"1": {"ElevenLabs": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/ElevenLabs/th_8620/001.mp3", "Ours": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/Ours/0h/th_8620/001_0.wav"}}, "th_9804": {"1": {"ElevenLabs": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/ElevenLabs/th_9804/001.mp3", "Ours": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/Ours/0h/th_9804/001_0.wav"}}, "zh_7": {"1": {"ElevenLabs": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/ElevenLabs/zh_7/001.mp3", "Ours": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/Ours/0h/taiyi/001_0.wav"}}}}, {"name": "5.2_Lao_Cloning_Worlds_First", "texts": [{"index": 1, "label": "ນັກກິລາແລ່ນ ທີ່ພິການທາງສາຍຕາ ຖືກແຟນໜຸ່ມຂໍແຕ່ງງານກາງສະໜາມ ຫຼັງຈາກແຂ່ງຂັນແລ້ວ"}], "methods": ["Ours"], "refs": [{"name": "chouxiang", "path": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/Reference/chouxiang.wav"}, {"name": "zh_7", "path": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/Reference/zh_7.wav"}, {"name": "en_2", "path": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/Reference/en_2.wav"}, {"name": "en_3", "path": "Section5_Zero-shot_Voice_Cloning/5.1_Thai_Cloning_0h/Reference/en_3.wav"}, {"name": "common_voice_lo_37766966", "path": "Section5_Zero-shot_Voice_Cloning/5.2_Lao_Cloning_Worlds_First/Reference/common_voice_lo_37766966.wav"}], "items": {"chouxiang": {"1": {"Ours": "Section5_Zero-shot_Voice_Cloning/5.2_Lao_Cloning_Worlds_First/Ours/best_epo_step_20000/chouxiang/001_0.wav"}}, "en_2": {"1": {"Ours": "Section5_Zero-shot_Voice_Cloning/5.2_Lao_Cloning_Worlds_First/Ours/best_epo_step_20000/en_2/001_0.wav"}}, "en_3": {"1": {"Ours": "Section5_Zero-shot_Voice_Cloning/5.2_Lao_Cloning_Worlds_First/Ours/best_epo_step_20000/en_3/001_0.wav"}}, "common_voice_lo_37766966": {"1": {"Ours": "Section5_Zero-shot_Voice_Cloning/5.2_Lao_Cloning_Worlds_First/Ours/best_epo_step_20000/common_voice_lo_37766966/001_0.wav"}}, "zh_7": {"1": {"Ours": "Section5_Zero-shot_Voice_Cloning/5.2_Lao_Cloning_Worlds_First/Ours/best_epo_step_20000/taiyi/001_0.wav"}}}}]}}</script>
+  <script>
+    const state = { data: null, query: '' };
+
+    async function loadIndex() {
+      try {
+        const res = await fetch('all_audio.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('fetch failed');
+        state.data = await res.json();
+      } catch (e) {
+        const fallback = document.getElementById('audioIndexFallback');
+        state.data = JSON.parse(fallback.textContent || '{}');
+      }
+      render();
+    }
+
+    function renderSection1() {
+      const container = document.getElementById('section1');
+      const s1 = state.data.section1_compare;
+      if (!s1 || !s1.voices || !s1.voices.length) {
+        container.style.display = 'none';
+        return;
+      }
+      container.style.display = 'block';
+      container.innerHTML = '';
+
+      const title = document.createElement('h2');
+      title.textContent = 'Section 1: The Stability-Expressivity Gap';
+      container.appendChild(title);
+
+      s1.voices.forEach((voice, voiceIdx) => {
+        const vTitle = document.createElement('div');
+        vTitle.className = 'voice-title';
+        vTitle.textContent = `Ref ${voiceIdx + 1}`;
+        container.appendChild(vTitle);
+
+        const sortedTexts = [...voice.texts].sort((a, b) => (a.index || 0) - (b.index || 0));
+        sortedTexts.forEach(t => {
+          const block = document.createElement('div');
+          block.className = 'text-block';
+
+          const tTitle = document.createElement('div');
+          tTitle.className = 'text-title';
+          tTitle.textContent = `Sample ${t.index}: ${t.label}`;
+          block.appendChild(tTitle);
+
+          const row = document.createElement('div');
+          row.className = 'row';
+
+          voice.alphas.forEach(alpha => {
+            const cell = document.createElement('div');
+            cell.className = 'cell';
+            const label = document.createElement('div');
+            label.className = 'cell-label';
+            label.textContent = `alpha_${alpha}`;
+            const audio = document.createElement('audio');
+            audio.controls = true;
+            audio.preload = 'none';
+            const path = (voice.items[String(t.index)] || {})[alpha];
+            if (path) audio.src = encodeURI(path);
+            cell.appendChild(label);
+            cell.appendChild(audio);
+            row.appendChild(cell);
+          });
+
+          block.appendChild(row);
+          container.appendChild(block);
+        });
+      });
+    }
+
+    function renderSection2() {
+      const container = document.getElementById('section2');
+      const s2 = state.data.section2_compare;
+      if (!s2 || !s2.refs || !s2.refs.length) {
+        container.style.display = 'none';
+        return;
+      }
+      container.style.display = 'block';
+      container.innerHTML = '';
+
+      const title = document.createElement('h2');
+      title.textContent = 'Section 2: MO-DPO Results';
+      container.appendChild(title);
+
+      s2.refs.forEach((ref, refIdx) => {
+        const rTitle = document.createElement('div');
+        rTitle.className = 'voice-title';
+        rTitle.textContent = `Ref ${refIdx + 1}`;
+        container.appendChild(rTitle);
+
+        const sortedTexts = [...s2.texts].sort((a, b) => (a.index || 0) - (b.index || 0));
+        sortedTexts.forEach(t => {
+          const block = document.createElement('div');
+          block.className = 'text-block';
+
+          const tTitle = document.createElement('div');
+          tTitle.className = 'text-title';
+          tTitle.textContent = `Sample ${t.index}: ${t.label}`;
+          block.appendChild(tTitle);
+
+          const row = document.createElement('div');
+          row.className = 'row';
+
+          s2.methods.forEach(method => {
+            const cell = document.createElement('div');
+            cell.className = 'cell';
+            const label = document.createElement('div');
+            label.className = 'cell-label';
+            label.textContent = method;
+            const audio = document.createElement('audio');
+            audio.controls = true;
+            audio.preload = 'none';
+            const path = (((ref.items || {})[String(t.index)] || {})[method]);
+            if (path) audio.src = encodeURI(path);
+            cell.appendChild(label);
+            cell.appendChild(audio);
+            row.appendChild(cell);
+          });
+
+          block.appendChild(row);
+          container.appendChild(block);
+        });
+      });
+    }
+
+    function renderSection3() {
+      const container = document.getElementById('section3');
+      const s3 = state.data.section3_compare;
+      if (!s3 || !s3.texts || !s3.texts.length) {
+        container.style.display = 'none';
+        return;
+      }
+      container.style.display = 'block';
+      container.innerHTML = '';
+
+      const title = document.createElement('h2');
+      title.textContent = 'Section 3: TDSC Results';
+      container.appendChild(title);
+
+      const sortedTexts = [...s3.texts].sort((a, b) => (a.index || 0) - (b.index || 0));
+      sortedTexts.forEach(t => {
+        const block = document.createElement('div');
+        block.className = 'text-block';
+
+        const tTitle = document.createElement('div');
+        tTitle.className = 'text-title';
+        tTitle.textContent = `Sample ${t.index}: ${t.label}`;
+        block.appendChild(tTitle);
+
+        const row = document.createElement('div');
+        row.className = 'row';
+
+        s3.methods.forEach(method => {
+          const cell = document.createElement('div');
+          cell.className = 'cell';
+          const label = document.createElement('div');
+          label.className = 'cell-label';
+          const labelName = (s3.method_labels || {})[method] || method;
+          label.textContent = labelName;
+          const audio = document.createElement('audio');
+          audio.controls = true;
+          audio.preload = 'none';
+          const path = (((s3.items || {})[String(t.index)] || {})[method]);
+          if (path) audio.src = encodeURI(path);
+          cell.appendChild(label);
+          cell.appendChild(audio);
+          row.appendChild(cell);
+        });
+
+        block.appendChild(row);
+        container.appendChild(block);
+      });
+    }
+
+    function renderSectionWithRefs(containerId, sectionData, titleText) {
+      const container = document.getElementById(containerId);
+      if (!sectionData || !sectionData.subsections || !sectionData.subsections.length) {
+        container.style.display = 'none';
+        return;
+      }
+      container.style.display = 'block';
+      container.innerHTML = '';
+
+      const title = document.createElement('h2');
+      title.textContent = titleText;
+      container.appendChild(title);
+
+      sectionData.subsections.forEach(sub => {
+        const subTitle = document.createElement('div');
+        subTitle.className = 'voice-title';
+        subTitle.textContent = sub.name;
+        container.appendChild(subTitle);
+
+        const refs = sub.refs || [];
+        const texts = (sub.texts || []).slice().sort((a, b) => (a.index || 0) - (b.index || 0));
+        const methods = sub.methods || [];
+        const items = sub.items || {};
+
+        refs.forEach((ref, refIdx) => {
+          const rTitle = document.createElement('div');
+          rTitle.className = 'voice-title';
+          rTitle.textContent = `Ref ${refIdx + 1}`;
+          container.appendChild(rTitle);
+
+          texts.forEach(t => {
+            const block = document.createElement('div');
+            block.className = 'text-block';
+
+            const tTitle = document.createElement('div');
+            tTitle.className = 'text-title';
+            tTitle.textContent = `Sample ${t.index}: ${t.label}`;
+            block.appendChild(tTitle);
+
+            const row = document.createElement('div');
+            row.className = 'row';
+
+            if (ref.path) {
+              const refCell = document.createElement('div');
+              refCell.className = 'cell';
+              const refLabel = document.createElement('div');
+              refLabel.className = 'cell-label';
+              refLabel.textContent = 'Reference';
+              const refAudio = document.createElement('audio');
+              refAudio.controls = true;
+              refAudio.preload = 'none';
+              refAudio.src = encodeURI(ref.path);
+              refCell.appendChild(refLabel);
+              refCell.appendChild(refAudio);
+              row.appendChild(refCell);
+            }
+
+            methods.forEach(method => {
+              const cell = document.createElement('div');
+              cell.className = 'cell';
+              const label = document.createElement('div');
+              label.className = 'cell-label';
+              label.textContent = method;
+              const audio = document.createElement('audio');
+              audio.controls = true;
+              audio.preload = 'none';
+              const path = (((items[ref.name] || {})[String(t.index)] || {})[method]);
+              if (path) audio.src = encodeURI(path);
+              cell.appendChild(label);
+              cell.appendChild(audio);
+              row.appendChild(cell);
+            });
+
+            block.appendChild(row);
+            container.appendChild(block);
+          });
+        });
+      });
+    }
+
+    function render() {
+      const container = document.getElementById('modules');
+      container.innerHTML = '';
+      if (!state.data || !state.data.modules) {
+        container.innerHTML = '<div class="empty">No data loaded.</div>';
+        return;
+      }
+
+      renderSection1();
+      renderSection2();
+      renderSection3();
+      renderSectionWithRefs('section4', state.data.section4_compare, 'Section 4: Comparison with Existing Systems');
+      renderSectionWithRefs('section5', state.data.section5_compare, 'Section 5: Zero-shot Voice Cloning');
+
+      document.getElementById('metaInfo').textContent =
+        `Total modules: ${state.data.modules.length} · Updated: ${state.data.generated_at}`;
+
+      const q = state.query.trim().toLowerCase();
+      const modules = q
+        ? state.data.modules.map(m => filterTree(m, q)).filter(m => m && m.count > 0)
+        : state.data.modules;
+
+      if (!modules.length) {
+        container.innerHTML = '<div class="empty">No modules found.</div>';
+        return;
+      }
+
+      modules.forEach(mod => {
+        const card = document.createElement('div');
+        card.className = 'module-card';
+        const title = document.createElement('div');
+        title.className = 'module-title';
+        title.innerHTML = `<div>${mod.name}<div class="dir-meta">${mod.path}</div></div>` +
+          `<span class="badge">${mod.count}</span>`;
+        card.appendChild(title);
+        card.appendChild(renderNode(mod.tree));
+        container.appendChild(card);
+      });
+    }
+
+    function filterTree(module, q) {
+      const tree = filterNode(module.tree, q);
+      if (!tree || tree.count === 0) return null;
+      return { ...module, tree, count: tree.count };
+    }
+
+    function filterNode(node, q) {
+      const nameMatch = node.name.toLowerCase().includes(q) || node.path.toLowerCase().includes(q);
+      const files = (node.audio_files || []).filter(f => f.name.toLowerCase().includes(q) || f.path.toLowerCase().includes(q));
+      const children = (node.children || [])
+        .map(child => filterNode(child, q))
+        .filter(child => child && child.count > 0);
+      const count = files.length + children.reduce((sum, c) => sum + c.count, 0);
+      if (!nameMatch && count === 0) return null;
+      return { ...node, audio_files: files, children, count };
+    }
+
+    function renderNode(node) {
+      const details = document.createElement('details');
+      details.open = true;
+      const summary = document.createElement('summary');
+      summary.textContent = `${node.name}`;
+      const meta = document.createElement('span');
+      meta.className = 'dir-meta';
+      meta.textContent = `(${node.count})`;
+      summary.appendChild(meta);
+      details.appendChild(summary);
+
+      if (node.audio_files && node.audio_files.length) {
+        const list = document.createElement('div');
+        list.className = 'audio-list';
+        node.audio_files.forEach(f => {
+          const item = document.createElement('div');
+          item.className = 'audio-item';
+          const name = document.createElement('div');
+          name.className = 'audio-name';
+          name.textContent = f.path;
+          const audio = document.createElement('audio');
+          audio.controls = true;
+          audio.preload = 'none';
+          audio.src = encodeURI(f.path);
+          item.appendChild(name);
+          item.appendChild(audio);
+          list.appendChild(item);
+        });
+        details.appendChild(list);
+      }
+
+      if (node.children && node.children.length) {
+        node.children.forEach(child => details.appendChild(renderNode(child)));
+      }
+
+      return details;
+    }
+
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      state.query = e.target.value || '';
+      render();
+    });
+
+    loadIndex();
+  </script>
+</body>
+</html>

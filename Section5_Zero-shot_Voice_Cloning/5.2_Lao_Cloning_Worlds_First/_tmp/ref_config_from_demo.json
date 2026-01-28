@@ -1,0 +1,44 @@
+{
+  "reference_audios": [
+    {
+      "name": "chouxiang",
+      "file": "/workspace/liyanliang/claude_workspace/paper_audio/Section5_Zero-shot_Voice_Cloning/5.2_Lao_Cloning_Worlds_First/Reference/chouxiang.wav",
+      "text": "啊，事情怎么这么多啊，明天又要开会了啊，做不完啊，说了你又不听，听又不懂，懂又不做，做又做错，错又不认，认又不改，改又不服，不服又不说，你说叫我怎么办",
+      "language": "zh",
+      "description": "中文音色：抽象",
+      "wav": "/workspace/liyanliang/claude_workspace/paper_audio/Section5_Zero-shot_Voice_Cloning/5.2_Lao_Cloning_Worlds_First/Reference/chouxiang.wav"
+    },
+    {
+      "name": "taiyi",
+      "file": "/workspace/liyanliang/claude_workspace/paper_audio/Section5_Zero-shot_Voice_Cloning/5.2_Lao_Cloning_Worlds_First/Reference/taiyi.wav",
+      "text": "对，这就是我，万人敬仰的太乙真人",
+      "language": "zh",
+      "description": "中文音色：太乙",
+      "wav": "/workspace/liyanliang/claude_workspace/paper_audio/Section5_Zero-shot_Voice_Cloning/5.2_Lao_Cloning_Worlds_First/Reference/taiyi.wav"
+    },
+    {
+      "name": "en_2",
+      "file": "/workspace/liyanliang/claude_workspace/paper_audio/Section5_Zero-shot_Voice_Cloning/5.2_Lao_Cloning_Worlds_First/Reference/en_2.wav",
+      "text": "I think people online have actually assembled videos showing every launch and it just gets like crazy fast as you get to twenty twenty three. So yeah, so we've done a nineteen three flight. We're now qualifying Falcon nine to be able to do forty flights.",
+      "language": "en",
+      "description": "英文音色 02",
+      "wav": "/workspace/liyanliang/claude_workspace/paper_audio/Section5_Zero-shot_Voice_Cloning/5.2_Lao_Cloning_Worlds_First/Reference/en_2.wav"
+    },
+    {
+      "name": "en_3",
+      "file": "/workspace/liyanliang/claude_workspace/paper_audio/Section5_Zero-shot_Voice_Cloning/5.2_Lao_Cloning_Worlds_First/Reference/en_3.wav",
+      "text": "I'm so happy I got to do this. I really wanted to work with Tom Hooper. I know that he records live and he films and records your vocals live. It's such an interesting thing to me and I wanted to see him work. I had actually done screen tests for Les Mis.",
+      "language": "en",
+      "description": "英文音色 03",
+      "wav": "/workspace/liyanliang/claude_workspace/paper_audio/Section5_Zero-shot_Voice_Cloning/5.2_Lao_Cloning_Worlds_First/Reference/en_3.wav"
+    },
+    {
+      "name": "common_voice_lo_37766966",
+      "file": "/workspace/liyanliang/claude_workspace/paper_audio/Section5_Zero-shot_Voice_Cloning/5.2_Lao_Cloning_Worlds_First/Reference/common_voice_lo_37766966.wav",
+      "text": "ລູກຄ້າເງິນຝາກ ຂອງທະນາຄານລາວ",
+      "language": "lo",
+      "description": "老挝语参考音频 common_voice_lo_37766966",
+      "wav": "/workspace/liyanliang/claude_workspace/paper_audio/Section5_Zero-shot_Voice_Cloning/5.2_Lao_Cloning_Worlds_First/Reference/common_voice_lo_37766966.wav"
+    }
+  ]
+}

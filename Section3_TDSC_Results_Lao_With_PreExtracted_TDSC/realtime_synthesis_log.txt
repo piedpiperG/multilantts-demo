@@ -1,0 +1,399 @@
+====================================================================================================
+Section 3: TDSC Results - 实时合成日志
+====================================================================================================
+
+开始时间: 2026-01-25 15:11:49
+TDSC 样本数: 2
+WER 范围: Self-train 0.1-0.4, SFT 0.4-1.0
+====================================================================================================
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:11:49
+样本序号: 1
+类别: TDSC(pre-extracted)
+TTS文本: ກອງປະຊຸມ ເຜີຍແຜ່ຜົນສໍາເລັດຂອງກອງປະຊຸມວຽກງານກວດກາ ທົ່ວປະເທດ ປະຈຳປີ
+WER: 0.000
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/TDSC/1.wav
+音色ID: 00005436
+温度: 0.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005436-00000074.wav
+参考文本: 不一会，便见一大团烟雾向他们滚滚而来。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:11:54
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ກອງປະຊຸມ ເຜີຍແຜ່ຜົນສໍາເລັດຂອງກອງປະຊຸມວຽກງານກວດກາ ທົ່ວປະເທດ ປະຈຳປີ
+WER: 0.412
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_0_1769325112849.wav
+音色ID: 00005436
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005436-00000074.wav
+参考文本: 不一会，便见一大团烟雾向他们滚滚而来。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:11:58
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ກອງປະຊຸມ ເຜີຍແຜ່ຜົນສໍາເລັດຂອງກອງປະຊຸມວຽກງານກວດກາ ທົ່ວປະເທດ ປະຈຳປີ
+WER: 0.412
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_1_1769325116742.wav
+音色ID: 00005436
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005436-00000074.wav
+参考文本: 不一会，便见一大团烟雾向他们滚滚而来。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:12:03
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ກອງປະຊຸມ ເຜີຍແຜ່ຜົນສໍາເລັດຂອງກອງປະຊຸມວຽກງານກວດກາ ທົ່ວປະເທດ ປະຈຳປີ
+WER: 0.412
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_2_1769325121303.wav
+音色ID: 00005436
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005436-00000074.wav
+参考文本: 不一会，便见一大团烟雾向他们滚滚而来。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:12:07
+样本序号: 1
+类别: sampling(ZS, ASR失败)
+TTS文本: ກອງປະຊຸມ ເຜີຍແຜ່ຜົນສໍາເລັດຂອງກອງປະຊຸມວຽກງານກວດກາ ທົ່ວປະເທດ ປະຈຳປີ
+WER: 1.000
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_3_1769325126009.wav
+音色ID: 00005436
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005436-00000074.wav
+参考文本: 不一会，便见一大团烟雾向他们滚滚而来。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:12:11
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ກອງປະຊຸມ ເຜີຍແຜ່ຜົນສໍາເລັດຂອງກອງປະຊຸມວຽກງານກວດກາ ທົ່ວປະເທດ ປະຈຳປີ
+WER: 0.176
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_4_1769325129931.wav
+音色ID: 00005436
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005436-00000074.wav
+参考文本: 不一会，便见一大团烟雾向他们滚滚而来。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:12:11
+样本序号: 1
+类别: self_train(selected, ZS)
+TTS文本: ກອງປະຊຸມ ເຜີຍແຜ່ຜົນສໍາເລັດຂອງກອງປະຊຸມວຽກງານກວດກາ ທົ່ວປະເທດ ປະຈຳປີ
+WER: 0.176
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/self_train/1.wav
+音色ID: 00005436
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005436-00000074.wav
+参考文本: 不一会，便见一大团烟雾向他们滚滚而来。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:12:11
+样本序号: 1
+类别: SFT(selected, ZS)
+TTS文本: ກອງປະຊຸມ ເຜີຍແຜ່ຜົນສໍາເລັດຂອງກອງປະຊຸມວຽກງານກວດກາ ທົ່ວປະເທດ ປະຈຳປີ
+WER: 0.412
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/SFT/1.wav
+音色ID: 00005436
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005436-00000074.wav
+参考文本: 不一会，便见一大团烟雾向他们滚滚而来。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:12:11
+样本序号: 1
+类别: Microsoft(selected)
+TTS文本: ກອງປະຊຸມ ເຜີຍແຜ່ຜົນສໍາເລັດຂອງກອງປະຊຸມວຽກງານກວດກາ ທົ່ວປະເທດ ປະຈຳປີ
+WER: 0.000
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/Microsoft/1.wav
+音色ID: 00005436
+温度: 1.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005436-00000074.wav
+参考文本: 不一会，便见一大团烟雾向他们滚滚而来。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:12:11
+样本序号: 1
+类别: TDSC(pre-extracted)
+TTS文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.000
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/TDSC/1.wav
+音色ID: 00005275
+温度: 0.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005275-00000070.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:12:15
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.000
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_0_1769325134497.wav
+音色ID: 00005275
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005275-00000070.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:12:19
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.067
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_1_1769325138488.wav
+音色ID: 00005275
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005275-00000070.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:12:23
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.000
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_2_1769325142173.wav
+音色ID: 00005275
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005275-00000070.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:12:27
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.067
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_3_1769325146268.wav
+音色ID: 00005275
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005275-00000070.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:12:31
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.267
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_4_1769325150014.wav
+音色ID: 00005275
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005275-00000070.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:12:35
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.000
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_0_1769325153961.wav
+音色ID: 00005275
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005275-00000070.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:12:40
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.000
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_1_1769325158461.wav
+音色ID: 00005275
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005275-00000070.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:12:44
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.000
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_2_1769325162772.wav
+音色ID: 00005275
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005275-00000070.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:12:47
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.000
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_3_1769325166608.wav
+音色ID: 00005275
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005275-00000070.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:12:51
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.000
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_4_1769325170497.wav
+音色ID: 00005275
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005275-00000070.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:12:56
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.000
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_0_1769325174502.wav
+音色ID: 00005275
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005275-00000070.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:13:00
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.000
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_1_1769325178653.wav
+音色ID: 00005275
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005275-00000070.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:13:05
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.000
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_2_1769325183500.wav
+音色ID: 00005275
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005275-00000070.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:13:09
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.000
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_3_1769325188106.wav
+音色ID: 00005275
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005275-00000070.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:13:13
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.267
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_4_1769325192040.wav
+音色ID: 00005275
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005275-00000070.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:13:17
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.000
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_0_1769325195844.wav
+音色ID: 00005275
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005275-00000070.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:13:21
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.000
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_1_1769325200576.wav
+音色ID: 00005275
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005275-00000070.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:13:25
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.000
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_2_1769325204401.wav
+音色ID: 00005275
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005275-00000070.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:13:29
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.000
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_3_1769325208425.wav
+音色ID: 00005275
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005275-00000070.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+时间: 2026-01-25 15:13:34
+样本序号: 1
+类别: sampling(ZS)
+TTS文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.067
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/all_samples/sample_zs_1_temp2_0_4_1769325212262.wav
+音色ID: 00005275
+温度: 2.0
+参考音频: /workspace/liyanliang/DataSet/seedtts_testset/zh/prompt-wavs/00005275-00000070.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+

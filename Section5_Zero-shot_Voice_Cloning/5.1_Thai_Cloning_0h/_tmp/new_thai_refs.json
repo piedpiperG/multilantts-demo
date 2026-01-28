@@ -1,0 +1,19 @@
+{
+  "elevenlabs": {
+    "api_key": "your_api_key_here"
+  },
+  "reference_audios": [
+    {
+      "name": "th_9804",
+      "wav": "/workspace/gengyizhong/data/thai_multispeaker/data/thai_id/29370_003.wav",
+      "text": "มันทำหน้าที่ร่วมกับเนื้อเยื่อเกี่ยวพันธ์ ในการช่วยยึดตัวของเราไว้",
+      "language": "th"
+    },
+    {
+      "name": "th_8620",
+      "wav": "/workspace/gengyizhong/data/thai_multispeaker/data/thai_id/21063_012.wav",
+      "text": "ที่บรรยายไว้เพียงว่าเป็นนกที่กระหายเลือด",
+      "language": "th"
+    }
+  ]
+}

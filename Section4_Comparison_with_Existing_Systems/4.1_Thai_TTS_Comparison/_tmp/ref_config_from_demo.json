@@ -1,0 +1,52 @@
+{
+  "reference_audios": [
+    {
+      "name": "th_zero_shot",
+      "wav": "/workspace/gengyizhong/projects/cosyvoice/asset/zero_shot_prompt.wav",
+      "text": "希望你以后能够做的比我还好呦。",
+      "language": "zh",
+      "file": "/workspace/gengyizhong/projects/cosyvoice/asset/zero_shot_prompt.wav"
+    },
+    {
+      "name": "th_cross_lingual",
+      "wav": "/workspace/gengyizhong/projects/cosyvoice/asset/cross_lingual_prompt.wav",
+      "text": "在那之后完全收购那家公司",
+      "language": "zh",
+      "file": "/workspace/gengyizhong/projects/cosyvoice/asset/cross_lingual_prompt.wav"
+    },
+    {
+      "name": "en_2",
+      "file": "/workspace/liyanliang/claude_workspace/paper_audio/Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/Reference/en_2.wav",
+      "text": "I think people online have actually assembled videos showing every launch and it just gets like crazy fast as you get to twenty twenty three. So yeah, so we've done a nineteen three flight. We're now qualifying Falcon nine to be able to do forty flights.",
+      "language": "en",
+      "description": "英文参考音色 02",
+      "wav": "/workspace/liyanliang/claude_workspace/paper_audio/Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/Reference/en_2.wav"
+    },
+    {
+      "name": "en_3",
+      "file": "/workspace/liyanliang/claude_workspace/paper_audio/Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/Reference/en_3.wav",
+      "text": "I'm so happy I got to do this. I really wanted to work with Tom Hooper. I know that he records live and he films and records your vocals live. It's such an interesting thing to me and I wanted to see him work. I had actually done screen tests for Les Mis.",
+      "language": "en",
+      "description": "英文参考音色 03",
+      "wav": "/workspace/liyanliang/claude_workspace/paper_audio/Section4_Comparison_with_Existing_Systems/4.1_Thai_TTS_Comparison/Reference/en_3.wav"
+    },
+    {
+      "name": "th_9804",
+      "wav": "/workspace/gengyizhong/data/thai_multispeaker/data/thai_id/29370_003.wav",
+      "text": "มันทำหน้าที่ร่วมกับเนื้อเยื่อเกี่ยวพันธ์ ในการช่วยยึดตัวของเราไว้",
+      "language": "th",
+      "spk_id": "9804",
+      "description": "泰语音色 9804",
+      "file": "/workspace/gengyizhong/data/thai_multispeaker/data/thai_id/29370_003.wav"
+    },
+    {
+      "name": "th_8620",
+      "wav": "/workspace/gengyizhong/data/thai_multispeaker/data/thai_id/21063_012.wav",
+      "text": "ที่บรรยายไว้เพียงว่าเป็นนกที่กระหายเลือด",
+      "language": "th",
+      "spk_id": "8620",
+      "description": "泰语音色 8620",
+      "file": "/workspace/gengyizhong/data/thai_multispeaker/data/thai_id/21063_012.wav"
+    }
+  ]
+}
