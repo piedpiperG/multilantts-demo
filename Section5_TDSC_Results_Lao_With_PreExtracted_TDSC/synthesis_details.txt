@@ -1,0 +1,227 @@
+====================================================================================================
+Section 3: TDSC Results - 详细信息
+====================================================================================================
+
+总计: 15 个音频
+生成时间: 2026-01-28 13:48:33
+
+====================================================================================================
+类别: TDSC
+数量: 5 个音频
+====================================================================================================
+
+--------------------------------------------------------------------------------
+样本ID: 1
+类别: TDSC
+文本: ກອງປະຊຸມ ເຜີຍແຜ່ຜົນສໍາເລັດຂອງກອງປະຊຸມວຽກງານກວດກາ ທົ່ວປະເທດ ປະຈຳປີ
+WER: 0.000
+音色ID: 00005436
+温度: 0.0
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/TDSC/1.wav
+参考音频: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/1.wav
+参考文本: 不一会，便见一大团烟雾向他们滚滚而来。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+样本ID: 2
+类别: TDSC
+文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.000
+音色ID: 00005275
+温度: 0.0
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/TDSC/2.wav
+参考音频: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/2.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+样本ID: 3
+类别: TDSC
+文本: ສະຖານເອກອັກຄະລັດຖະທູດແຫ່ງ ສປປ ລາວ ທີ່ ອົດສະຕາລີນິວຊີແລນ
+WER: 0.000
+音色ID: 10003220
+温度: 0.0
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/TDSC/3.wav
+参考音频: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/3.wav
+参考文本: 要保持独立思独立思独立思考，结构化思维。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+样本ID: 4
+类别: TDSC
+文本: ຕິດຕາມ ກວດກາການຈັດຕັ້ງປະຕິບັດໜ້າທີ່ຂອງບັນດາສະມາຊິກພັກ ແລະ
+WER: 0.000
+音色ID: 00004830
+温度: 0.0
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/TDSC/4.wav
+参考音频: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/4.wav
+参考文本: 二环内禁止增加建筑用地，早已被政府明文规定。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+样本ID: 5
+类别: TDSC
+文本: ລາວ ກໍາປູເຈຍ ສືບຕໍ່ຮ່ວມກັນແກ້ໄຂບັນຫາຊາຍແດນ
+WER: 0.000
+音色ID: 00005445
+温度: 0.0
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/TDSC/5.wav
+参考音频: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/5.wav
+参考文本: 身体倍棒，吃嘛嘛香，讲体力，论功夫，未必逊色于武将。
+--------------------------------------------------------------------------------
+
+====================================================================================================
+类别: self_train
+数量: 5 个音频
+====================================================================================================
+
+--------------------------------------------------------------------------------
+样本ID: 1
+类别: self_train
+文本: ກອງປະຊຸມ ເຜີຍແຜ່ຜົນສໍາເລັດຂອງກອງປະຊຸມວຽກງານກວດກາ ທົ່ວປະເທດ ປະຈຳປີ
+WER: 0.176
+音色ID: 00005436
+温度: 2.0
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/self_train/1.wav
+参考音频: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/1.wav
+参考文本: 不一会，便见一大团烟雾向他们滚滚而来。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+样本ID: 2
+类别: self_train
+文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.067
+音色ID: 00005275
+温度: 2.0
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/self_train/2.wav
+参考音频: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/2.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+样本ID: 3
+类别: self_train
+文本: ສະຖານເອກອັກຄະລັດຖະທູດແຫ່ງ ສປປ ລາວ ທີ່ ອົດສະຕາລີນິວຊີແລນ
+WER: 0.167
+音色ID: 10003220
+温度: 2.0
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/self_train/3.wav
+参考音频: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/3.wav
+参考文本: 要保持独立思独立思独立思考，结构化思维。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+样本ID: 4
+类别: self_train
+文本: ຕິດຕາມ ກວດກາການຈັດຕັ້ງປະຕິບັດໜ້າທີ່ຂອງບັນດາສະມາຊິກພັກ ແລະ
+WER: 0.118
+音色ID: 00004830
+温度: 2.0
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/self_train/4.wav
+参考音频: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/4.wav
+参考文本: 二环内禁止增加建筑用地，早已被政府明文规定。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+样本ID: 5
+类别: self_train
+文本: ລາວ ກໍາປູເຈຍ ສືບຕໍ່ຮ່ວມກັນແກ້ໄຂບັນຫາຊາຍແດນ
+WER: 0.133
+音色ID: 00005445
+温度: 2.0
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/self_train/5.wav
+参考音频: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/5.wav
+参考文本: 身体倍棒，吃嘛嘛香，讲体力，论功夫，未必逊色于武将。
+--------------------------------------------------------------------------------
+
+====================================================================================================
+类别: SFT
+数量: 5 个音频
+====================================================================================================
+
+--------------------------------------------------------------------------------
+样本ID: 1
+类别: SFT
+文本: ກອງປະຊຸມ ເຜີຍແຜ່ຜົນສໍາເລັດຂອງກອງປະຊຸມວຽກງານກວດກາ ທົ່ວປະເທດ ປະຈຳປີ
+WER: 0.412
+音色ID: 00005436
+温度: 2.0
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/SFT/1.wav
+参考音频: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/1.wav
+参考文本: 不一会，便见一大团烟雾向他们滚滚而来。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+样本ID: 2
+类别: SFT
+文本: ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ
+WER: 0.267
+音色ID: 00005275
+温度: 2.0
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/SFT/2.wav
+参考音频: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/2.wav
+参考文本: 所以，我猜他们被雪崩埋葬的可能性极小。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+样本ID: 3
+类别: SFT
+文本: ສະຖານເອກອັກຄະລັດຖະທູດແຫ່ງ ສປປ ລາວ ທີ່ ອົດສະຕາລີນິວຊີແລນ
+WER: 0.583
+音色ID: 10003220
+温度: 2.0
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/SFT/3.wav
+参考音频: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/3.wav
+参考文本: 要保持独立思独立思独立思考，结构化思维。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+样本ID: 4
+类别: SFT
+文本: ຕິດຕາມ ກວດກາການຈັດຕັ້ງປະຕິບັດໜ້າທີ່ຂອງບັນດາສະມາຊິກພັກ ແລະ
+WER: 1.000
+音色ID: 00004830
+温度: 2.0
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/SFT/4.wav
+参考音频: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/4.wav
+参考文本: 二环内禁止增加建筑用地，早已被政府明文规定。
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+样本ID: 5
+类别: SFT
+文本: ລາວ ກໍາປູເຈຍ ສືບຕໍ່ຮ່ວມກັນແກ້ໄຂບັນຫາຊາຍແດນ
+WER: 0.400
+音色ID: 00005445
+温度: 2.0
+音频文件: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/SFT/5.wav
+参考音频: /workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/5.wav
+参考文本: 身体倍棒，吃嘛嘛香，讲体力，论功夫，未必逊色于武将。
+--------------------------------------------------------------------------------
+
+====================================================================================================
+WER 统计
+====================================================================================================
+
+TDSC:
+  数量: 5
+  平均 WER: 0.000
+   最低 WER: 0.000
+  最高 WER: 0.000
+  WER 分布: 0.000, 0.000, 0.000, 0.000, 0.000
+
+self_train:
+  数量: 5
+  平均 WER: 0.132
+   最低 WER: 0.067
+  最高 WER: 0.176
+  WER 分布: 0.176, 0.067, 0.167, 0.118, 0.133
+
+SFT:
+  数量: 5
+  平均 WER: 0.532
+   最低 WER: 0.267
+  最高 WER: 1.000
+  WER 分布: 0.412, 0.267, 0.583, 1.000, 0.400
+

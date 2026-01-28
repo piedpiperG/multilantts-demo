@@ -1,0 +1,172 @@
+[
+  {
+    "sample_id": 1,
+    "category": "TDSC",
+    "text": "ກອງປະຊຸມ ເຜີຍແຜ່ຜົນສໍາເລັດຂອງກອງປະຊຸມວຽກງານກວດກາ ທົ່ວປະເທດ ປະຈຳປີ",
+    "wer": 0.0,
+    "spk_id": "00005436",
+    "temperature": 0.0,
+    "new_path": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/TDSC/1.wav",
+    "ref_wav": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/1.wav",
+    "ref_text": "不一会，便见一大团烟雾向他们滚滚而来。",
+    "source_wav": "/workspace/liyanliang/construct_lao_data/data/DPO_data/dpo_dataset_15k_strict_2/wavs/00005436_13_6.wav"
+  },
+  {
+    "sample_id": 1,
+    "category": "self_train",
+    "text": "ກອງປະຊຸມ ເຜີຍແຜ່ຜົນສໍາເລັດຂອງກອງປະຊຸມວຽກງານກວດກາ ທົ່ວປະເທດ ປະຈຳປີ",
+    "wer": 0.17647058823529413,
+    "spk_id": "00005436",
+    "temperature": 2.0,
+    "new_path": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/self_train/1.wav",
+    "ref_wav": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/1.wav",
+    "ref_text": "不一会，便见一大团烟雾向他们滚滚而来。"
+  },
+  {
+    "sample_id": 1,
+    "category": "SFT",
+    "text": "ກອງປະຊຸມ ເຜີຍແຜ່ຜົນສໍາເລັດຂອງກອງປະຊຸມວຽກງານກວດກາ ທົ່ວປະເທດ ປະຈຳປີ",
+    "wer": 0.4117647058823529,
+    "spk_id": "00005436",
+    "temperature": 2.0,
+    "new_path": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/SFT/1.wav",
+    "ref_wav": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/1.wav",
+    "ref_text": "不一会，便见一大团烟雾向他们滚滚而来。"
+  },
+  {
+    "sample_id": 2,
+    "category": "TDSC",
+    "text": "ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ",
+    "wer": 0.0,
+    "spk_id": "00005275",
+    "temperature": 0.0,
+    "new_path": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/TDSC/2.wav",
+    "ref_wav": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/2.wav",
+    "ref_text": "所以，我猜他们被雪崩埋葬的可能性极小。",
+    "source_wav": "/workspace/liyanliang/construct_lao_data/data/DPO_data/dpo_dataset_15k_strict_2/wavs/00005275_5_6.wav"
+  },
+  {
+    "sample_id": 2,
+    "category": "self_train",
+    "text": "ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ",
+    "wer": 0.06666666666666667,
+    "spk_id": "00005275",
+    "temperature": 2.0,
+    "new_path": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/self_train/2.wav",
+    "ref_wav": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/2.wav",
+    "ref_text": "所以，我猜他们被雪崩埋葬的可能性极小。"
+  },
+  {
+    "sample_id": 2,
+    "category": "SFT",
+    "text": "ຕຳແໜ່ງຂອງປະທານາທິບໍດີ ໃນເວລານັ້ນ ໂດຍທະຫານ ເມື່ອປີ",
+    "wer": 0.26666666666666666,
+    "spk_id": "00005275",
+    "temperature": 2.0,
+    "new_path": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/SFT/2.wav",
+    "ref_wav": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/2.wav",
+    "ref_text": "所以，我猜他们被雪崩埋葬的可能性极小。"
+  },
+  {
+    "sample_id": 3,
+    "category": "TDSC",
+    "text": "ສະຖານເອກອັກຄະລັດຖະທູດແຫ່ງ ສປປ ລາວ ທີ່ ອົດສະຕາລີນິວຊີແລນ",
+    "wer": 0.0,
+    "spk_id": "10003220",
+    "temperature": 0.0,
+    "new_path": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/TDSC/3.wav",
+    "ref_wav": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/3.wav",
+    "ref_text": "要保持独立思独立思独立思考，结构化思维。",
+    "source_wav": "/workspace/liyanliang/construct_lao_data/data/DPO_data/dpo_dataset_15k_strict_2/wavs/10003220_7_8.wav"
+  },
+  {
+    "sample_id": 3,
+    "category": "self_train",
+    "text": "ສະຖານເອກອັກຄະລັດຖະທູດແຫ່ງ ສປປ ລາວ ທີ່ ອົດສະຕາລີນິວຊີແລນ",
+    "wer": 0.16666666666666666,
+    "spk_id": "10003220",
+    "temperature": 2.0,
+    "new_path": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/self_train/3.wav",
+    "ref_wav": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/3.wav",
+    "ref_text": "要保持独立思独立思独立思考，结构化思维。"
+  },
+  {
+    "sample_id": 3,
+    "category": "SFT",
+    "text": "ສະຖານເອກອັກຄະລັດຖະທູດແຫ່ງ ສປປ ລາວ ທີ່ ອົດສະຕາລີນິວຊີແລນ",
+    "wer": 0.5833333333333334,
+    "spk_id": "10003220",
+    "temperature": 2.0,
+    "new_path": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/SFT/3.wav",
+    "ref_wav": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/3.wav",
+    "ref_text": "要保持独立思独立思独立思考，结构化思维。"
+  },
+  {
+    "sample_id": 4,
+    "category": "TDSC",
+    "text": "ຕິດຕາມ ກວດກາການຈັດຕັ້ງປະຕິບັດໜ້າທີ່ຂອງບັນດາສະມາຊິກພັກ ແລະ",
+    "wer": 0.0,
+    "spk_id": "00004830",
+    "temperature": 0.0,
+    "new_path": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/TDSC/4.wav",
+    "ref_wav": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/4.wav",
+    "ref_text": "二环内禁止增加建筑用地，早已被政府明文规定。",
+    "source_wav": "/workspace/liyanliang/construct_lao_data/data/DPO_data/dpo_dataset_15k_strict_2/wavs/00004830_26_7.wav"
+  },
+  {
+    "sample_id": 4,
+    "category": "self_train",
+    "text": "ຕິດຕາມ ກວດກາການຈັດຕັ້ງປະຕິບັດໜ້າທີ່ຂອງບັນດາສະມາຊິກພັກ ແລະ",
+    "wer": 0.11764705882352941,
+    "spk_id": "00004830",
+    "temperature": 2.0,
+    "new_path": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/self_train/4.wav",
+    "ref_wav": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/4.wav",
+    "ref_text": "二环内禁止增加建筑用地，早已被政府明文规定。"
+  },
+  {
+    "sample_id": 4,
+    "category": "SFT",
+    "text": "ຕິດຕາມ ກວດກາການຈັດຕັ້ງປະຕິບັດໜ້າທີ່ຂອງບັນດາສະມາຊິກພັກ ແລະ",
+    "wer": 1.0,
+    "spk_id": "00004830",
+    "temperature": 2.0,
+    "new_path": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/SFT/4.wav",
+    "ref_wav": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/4.wav",
+    "ref_text": "二环内禁止增加建筑用地，早已被政府明文规定。"
+  },
+  {
+    "sample_id": 5,
+    "category": "TDSC",
+    "text": "ລາວ ກໍາປູເຈຍ ສືບຕໍ່ຮ່ວມກັນແກ້ໄຂບັນຫາຊາຍແດນ",
+    "wer": 0.0,
+    "spk_id": "00005445",
+    "temperature": 0.0,
+    "new_path": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/TDSC/5.wav",
+    "ref_wav": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/5.wav",
+    "ref_text": "身体倍棒，吃嘛嘛香，讲体力，论功夫，未必逊色于武将。",
+    "source_wav": "/workspace/liyanliang/construct_lao_data/data/DPO_data/dpo_dataset_15k_strict_2/wavs/00005445_1_8.wav"
+  },
+  {
+    "sample_id": 5,
+    "category": "self_train",
+    "text": "ລາວ ກໍາປູເຈຍ ສືບຕໍ່ຮ່ວມກັນແກ້ໄຂບັນຫາຊາຍແດນ",
+    "wer": 0.13333333333333333,
+    "spk_id": "00005445",
+    "temperature": 2.0,
+    "new_path": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/self_train/5.wav",
+    "ref_wav": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/5.wav",
+    "ref_text": "身体倍棒，吃嘛嘛香，讲体力，论功夫，未必逊色于武将。"
+  },
+  {
+    "sample_id": 5,
+    "category": "SFT",
+    "text": "ລາວ ກໍາປູເຈຍ ສືບຕໍ່ຮ່ວມກັນແກ້ໄຂບັນຫາຊາຍແດນ",
+    "wer": 0.4,
+    "spk_id": "00005445",
+    "temperature": 2.0,
+    "new_path": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/SFT/5.wav",
+    "ref_wav": "/workspace/liyanliang/claude_workspace/paper_audio/Section3_TDSC_Results_Lao_With_PreExtracted_TDSC/reference/5.wav",
+    "ref_text": "身体倍棒，吃嘛嘛香，讲体力，论功夫，未必逊色于武将。"
+  }
+]
