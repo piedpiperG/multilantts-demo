@@ -383,19 +383,15 @@
     }
 
     .voice-title {
-
-      margin: 18px 0 10px;
-
-      font-size: 16px;
-
+      margin: 24px 0 12px;
+      font-size: 18px;
       font-weight: 700;
-
-      color: #0f172a;
-
-      position: relative;
-
-      z-index: 1;
-
+      /* --- 修改点：将颜色改为黑色 --- */
+      color: #000000; 
+      /* 如果之前加了左边框也想改色，可以把 border-left 的颜色也改了，或者直接去掉 */
+      border-left: 4px solid #000000; 
+      padding-left: 12px;
+      text-transform: capitalize;
     }
 
     .text-block {
@@ -817,6 +813,15 @@
       margin-bottom: 0;
 
     }
+    .overview-list {
+      padding-left: 20px;
+      margin: 10px 0;
+      list-style-type: disc;
+    }
+    .overview-list li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
 
 
 
@@ -883,33 +888,27 @@
     
 
     <section class="section-block" id="overview">
-
       <h2>Demo Overview</h2>
-
       <div class="overview-card">
-
         <p class="overview-text">
-
-          This demo presents the core experimental findings of this work, focusing on the trade-off between speech stability-expressivity degradation without compromising intelligibility.
-
+          This work addresses the <strong>Stability-Expressivity Gap</strong> in low-resource Spoken Language Models (SLMs). We identify a phenomenon called <strong>"Synthetic Erosion"</strong>—where scaling synthetic data improves stability but causes prosodic naturalness to collapse.
         </p>
-
+    
         <p class="overview-text">
-
-          The demo is organized to guide listeners from empirical observations to methodological solutions. It first provides cross-system listening references, then illustrates the emergence of the stability-expressivity gap under different data configurations, and finally demonstrates how self-alignment and self-improvement strategies can effectively restore prosodic expressiveness in settings with and without access to real-speech anchors. The last section presents zero-shot speech generation as an application scenario, highlighting the generalization behavior of the proposed approach.
-
+          To bridge this gap, we propose two self-alignment frameworks: <strong>DGSA</strong> and <strong>TDSC</strong>. This demo is organized as follows:
         </p>
-
-        <p class="overview-text">
-
-          Listeners are encouraged to follow the sections in order and to evaluate each example by jointly considering pronunciation clarity and prosodic naturalness, which together reflect the central objective of this work.
-
+    
+        <ul class="overview-list">
+          <li><strong>SOTA Applications:</strong> High-fidelity <strong>Zero-Shot Voice Cloning</strong> for Thai and the first-ever implementation for the Lao language.</li>
+          <li><strong>The Stability-Expressivity Gap:</strong> Illustrating the emergence of "Synthetic Erosion" across different data configurations.</li>
+          <li><strong>Methodological Solutions:</strong> Demonstrating how our self-alignment strategies (DGSA & TDSC) restore prosodic expressiveness.</li>
+        </ul>
+    
+        <p class="overview-text" style="margin-top: 15px; font-style: italic;">
+          Listeners are encouraged to evaluate examples by jointly considering <strong>pronunciation clarity</strong> and <strong>prosodic naturalness</strong>.
         </p>
-
       </div>
-
     </section>
-
 
 
     <section class="section-block" id="toc">
@@ -1022,58 +1021,47 @@
 
 
     function renderSection1() {
-
       renderSectionWithRefs(
-
         'section1',
-
         state.data.section4_compare,
-
-        'Section 1: Comparison with Existing Systems',
-
-        'This section presents a perceptual comparison between the proposed approach and state-of-the-art speech synthesis methods under matched input conditions. The listening examples highlight differences in pronunciation accuracy, naturalness, and prosodic behavior, providing a reference for assessing the limitations of current state-of-the-art systems and contextualizing the improvements demonstrated in subsequent sections.'
-
+        'Section 1: Competitive Benchmarking',
+        `<strong>Can we outperform the giants?</strong> This section provides a head-to-head comparison between our approach and current state-of-the-art systems:
+        <ul class="overview-list" style="margin-top: 10px;">
+          <li><strong>Academic Baselines:</strong> PythaiTTS, Typhoon2-Audio, Seamless-M4T-v2, and MMS-TTS.</li>
+          <li><strong>Commercial Leaders:</strong> Gemini, Azure, and ElevenLabs v3.</li>
+        </ul>
+        <strong>Key Listen-for:</strong> Notice how our model preserves natural Thai tones and Lao prosody, which are often lost or "flattened" in existing systems.`
       );
-
     }
 
 
-
     function renderSection2() {
+  const container = document.getElementById('section3'); // 对应页面上的 Section 3 模块
+  const s1 = state.data.section1_compare;
+  if (!s1 || !s1.voices || !s1.voices.length) {
+    container.style.display = 'none';
+    return;
+  }
+  container.style.display = 'block';
+  container.innerHTML = '';
 
-      const container = document.getElementById('section3');
+  // 1. 标题
+  const title = document.createElement('h2');
+  title.textContent = 'Section 3: The Stability-Expressivity Gap';
+  container.appendChild(title);
 
-      const s1 = state.data.section1_compare;
-
-      if (!s1 || !s1.voices || !s1.voices.length) {
-
-        container.style.display = 'none';
-
-        return;
-
-      }
-
-      container.style.display = 'block';
-
-      container.innerHTML = '';
-
-
-
-      const title = document.createElement('h2');
-
-      title.textContent = 'Section 3: The Stability-Expressivity Gap';
-
-      container.appendChild(title);
-
-
-
-      const desc = document.createElement('p');
-
-      desc.className = 'section-desc';
-
-      desc.textContent = 'This section illustrates the stability-expressivity degradation.';
-
-      container.appendChild(desc);
+  // 2. 美化后的分点描述
+  const desc = document.createElement('p');
+  desc.className = 'section-desc';
+  desc.innerHTML = `
+    <strong>Visualizing "Synthetic Erosion".</strong> This section demonstrates the non-monotonic trade-off when scaling synthetic data in Thai SLMs:
+    <ul class="overview-list" style="margin-top: 10px;">
+      <li><strong>Stability Gain (Low Alpha):</strong> Increasing synthetic data reduces phonetic hallucinations and improves clarity.</li>
+      <li><strong>Expressivity Collapse (High Alpha):</strong> Excessive synthetic data triggers "Synthetic Erosion," where prosody becomes robotic and flat.</li>
+      <li><strong>The Sweet Spot:</strong> Observe how the model's naturalness peaks before the prosodic distribution collapses.</li>
+    </ul>
+  `;
+  container.appendChild(desc);
 
 
 
@@ -1160,40 +1148,33 @@
 
 
     function renderSection3() {
+  const container = document.getElementById('section4');
+  const s2 = state.data.section2_compare;
+  if (!s2 || !s2.refs || !s2.refs.length) {
+    container.style.display = 'none';
+    return;
+  }
+  container.style.display = 'block';
+  container.innerHTML = '';
 
-      const container = document.getElementById('section4');
+  // 1. 标题
+  const title = document.createElement('h2');
+  title.textContent = 'Section 4: Disentanglement-Guided Self-Alignment (DGSA)';
+  container.appendChild(title);
 
-      const s2 = state.data.section2_compare;
-
-      if (!s2 || !s2.refs || !s2.refs.length) {
-
-        container.style.display = 'none';
-
-        return;
-
-      }
-
-      container.style.display = 'block';
-
-      container.innerHTML = '';
-
-
-
-      const title = document.createElement('h2');
-
-      title.textContent = 'Section 4: Disentanglement-Guided Self-Alignment (DGSA)';
-
-      container.appendChild(title);
-
-
-
-      const desc = document.createElement('p');
-
-      desc.className = 'section-desc';
-
-      desc.textContent = 'This section demonstrates the effect of self-alignment based on disentangled modeling of speech components. By leveraging structural separation between content, prosody, and speaker characteristics, the proposed self-alignment strategy guides the model toward more expressive prosodic patterns without relying on manual annotations. The examples highlight how expressivity can be recovered while maintaining pronunciation stability. Azure samples are manually verified as correct references and can be used to judge the quality of other samples.';
-
-      container.appendChild(desc);
+  // 2. 分点叙述的描述文本
+  const desc = document.createElement('p');
+  desc.className = 'section-desc';
+  desc.innerHTML = `
+    <strong>Recovering Expressivity via Structural Disentanglement.</strong> DGSA exploits the prosody-timbre separation in Flow-Matching SLMs to achieve self-supervised alignment:
+    <ul class="overview-list" style="margin-top: 10px;">
+      <li><strong>Preference Construction:</strong> Automatically generates contrasting prosodic pairs for the same speaker identity without manual labels.</li>
+      <li><strong>Style Recovery:</strong> Effectively bridges the Stability-Expressivity Gap by guiding the model toward expressive real-speech priors.</li>
+      <li><strong>Stability Preservation:</strong> Maintains high pronunciation accuracy while significantly enhancing prosodic naturalness.</li>
+    </ul>
+    <em>Azure samples are provided as gold-standard references for benchmarking.</em>
+  `;
+  container.appendChild(desc);
 
 
 
@@ -1298,40 +1279,33 @@
 
 
     function renderSection4() {
+  const container = document.getElementById('section5');
+  const s3 = state.data.section3_compare;
+  if (!s3 || !s3.texts || !s3.texts.length) {
+    container.style.display = 'none';
+    return;
+  }
+  container.style.display = 'block';
+  container.innerHTML = '';
 
-      const container = document.getElementById('section5');
+  // 1. 标题
+  const title = document.createElement('h2');
+  title.textContent = 'Section 5: Temperature-Driven Self-Critique (TDSC)';
+  container.appendChild(title);
 
-      const s3 = state.data.section3_compare;
-
-      if (!s3 || !s3.texts || !s3.texts.length) {
-
-        container.style.display = 'none';
-
-        return;
-
-      }
-
-      container.style.display = 'block';
-
-      container.innerHTML = '';
-
-
-
-      const title = document.createElement('h2');
-
-      title.textContent = 'Section 5: Temperature-Driven Self-Critique (TDSC)';
-
-      container.appendChild(title);
-
-
-
-      const desc = document.createElement('p');
-
-      desc.className = 'section-desc';
-
-      desc.textContent = 'This section presents a self-improvement framework designed for scenarios with limited or no access to real-speech anchors. Through iterative generation, automatic filtering, and preference-based updates, the model progressively refines its output distribution. The listening examples illustrate how both stability-expressivity can improve across iterations in a fully self-supervised manner. Azure samples are manually verified as correct references and can be used to judge the quality of other samples.';
-
-      container.appendChild(desc);
+  // 2. 分点叙述的描述文本
+  const desc = document.createElement('p');
+  desc.className = 'section-desc';
+  desc.innerHTML = `
+    <strong>Self-Evolution in Zero-Reference Scenarios.</strong> TDSC enables SLMs to improve autonomously even when authentic speech anchors are completely inaccessible:
+    <ul class="overview-list" style="margin-top: 10px;">
+      <li><strong>Exploration via Temperature:</strong> Generates diverse candidates across temperature gradients to explore the latent prosodic space.</li>
+      <li><strong>Automated Filtering:</strong> Uses linguistic feedback (e.g., ASR-based verification) to identify and retain high-quality "pseudo-real" samples.</li>
+      <li><strong>Iterative Refinement:</strong> Progressively stabilizes the decoding process and recovers natural diversity through a closed-loop self-improvement cycle.</li>
+    </ul>
+    <em>Azure samples are provided as gold-standard references for benchmarking.</em>
+  `;
+  container.appendChild(desc);
 
 
 
@@ -1422,42 +1396,25 @@
 
 
     function renderSectionWithRefs(containerId, sectionData, titleText, descText) {
+    const container = document.getElementById(containerId);
+    if (!sectionData || !sectionData.subsections || !sectionData.subsections.length) {
+      container.style.display = 'none';
+      return;
+    }
+    container.style.display = 'block';
+    container.innerHTML = '';
 
-      const container = document.getElementById(containerId);
+    const title = document.createElement('h2');
+    title.textContent = titleText;
+    container.appendChild(title);
 
-      if (!sectionData || !sectionData.subsections || !sectionData.subsections.length) {
-
-        container.style.display = 'none';
-
-        return;
-
-      }
-
-      container.style.display = 'block';
-
-      container.innerHTML = '';
-
-
-
-      const title = document.createElement('h2');
-
-      title.textContent = titleText;
-
-      container.appendChild(title);
-
-
-
-      if (descText) {
-
-        const desc = document.createElement('p');
-
-        desc.className = 'section-desc';
-
-        desc.textContent = descText;
-
-        container.appendChild(desc);
-
-      }
+    if (descText) {
+      const desc = document.createElement('p');
+      desc.className = 'section-desc';
+      // --- 关键修改：使用 innerHTML 而非 textContent ---
+      desc.innerHTML = descText; 
+      container.appendChild(desc);
+    }
 
 
 
@@ -1467,7 +1424,7 @@
 
         subTitle.className = 'voice-title';
 
-        subTitle.textContent = sub.name;
+        subTitle.textContent = sub.name.replace(/_/g, ' ');
 
         container.appendChild(subTitle);
 
@@ -1481,17 +1438,20 @@
 
         const items = sub.items || {};
 
+        // --- 修改点：在此处定义一个针对当前子章节的样本计数器 ---
+        let globalSampleIndex = 1;
+
 
 
         refs.forEach((ref, refIdx) => {
 
-          const rTitle = document.createElement('div');
+          // const rTitle = document.createElement('div');
 
-          rTitle.className = 'voice-title';
+          // rTitle.className = 'voice-title';
 
-          rTitle.textContent = `Ref ${refIdx + 1}`;
+          // rTitle.textContent = `Ref ${refIdx + 1}`;
 
-          container.appendChild(rTitle);
+          // container.appendChild(rTitle);
 
 
 
@@ -1507,7 +1467,8 @@
 
             tTitle.className = 'text-title';
 
-            tTitle.textContent = `Sample ${t.index}: ${fixText(t.label)}`;
+            tTitle.textContent = `Sample ${globalSampleIndex}: ${fixText(t.label)}`;
+            globalSampleIndex++; // 每次渲染一个样本后加 1
 
             block.appendChild(tTitle);
 
@@ -1614,15 +1575,16 @@
       renderSection1();
 
       renderSectionWithRefs(
-
         'section2',
-
         state.data.section5_compare,
-
         'Section 2: Zero-shot Voice Cloning',
-
-        "This section showcases zero-shot speech generation as an application scenario. The examples evaluate the system's ability to generalize to previously unseen speakers while preserving intelligibility and natural prosody. This setting highlights the practical relevance of balancing stability-expressivity in real-world usage."
-
+        `<strong>Pushing the limits of generalization.</strong> This section demonstrates our model's capability to clone unseen voices across different linguistic contexts:
+        <ul class="overview-list" style="margin-top: 10px;">
+          <li><strong>Cross-lingual Consistency:</strong> Maintaining high speaker similarity even when the prompt and target languages differ.</li>
+          <li><strong>World's First for Lao:</strong> Showcasing the first-ever zero-shot cloning capability for the Lao language.</li>
+          <li><strong>Tone & Prosody Preservation:</strong> Balancing identity cloning with the complex tonal requirements of Thai and Lao.</li>
+        </ul>
+        <strong>Impact:</strong> Highlights how our self-alignment strategies enable high-fidelity synthesis in real-world, high-scarcity scenarios.`
       );
 
       renderSection2();
